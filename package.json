@@ -1,0 +1,35 @@
+{
+  "name": "user-management-system",
+  "version": "1.0.0",
+  "description": "Simple user management system with CURD operations",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chytrakr/user-management-system.git"
+  },
+  "author": "Chytra K R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chytrakr/user-management-system/issues"
+  },
+  "homepage": "https://github.com/chytrakr/user-management-system#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "config.json": "0.0.4",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "express-session": "^1.17.0",
+    "i": "^0.3.6",
+    "mongoose": "^5.8.11",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-paginate": "^5.0.3",
+    "nodemon": "^2.0.2",
+    "npm": "^6.13.7",
+    "shortid": "^2.2.15",
+    "validator": "^12.2.0"
+  }
+}

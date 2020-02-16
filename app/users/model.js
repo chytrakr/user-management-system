@@ -2,7 +2,7 @@ const config = require('../config/models.js');
 config.increment.initialize(config.db);
 
 const schema = new config.mongoose.Schema({
-  userTpe: { 
+  userType: { 
     type: String,
     required: true 
   },
@@ -23,13 +23,21 @@ const schema = new config.mongoose.Schema({
     type: String, 
     required: true 
   },
+  address: { 
+    type: String, 
+    required: true 
+  },
+  gender: { 
+    type: String, 
+    required: true
+  },
   url: { 
     type: String, 
     required: false 
   },
   contactNumber: { 
     type: Number,
-     required: true,
+    required: true,
   },
   createdAt: {
     type: Date,

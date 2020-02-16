@@ -43,7 +43,7 @@ router.post('/create', function(req, res) {
   }
 
 
-  let {fullName, password, userId, email, url, contactNumber} = req.body;
+  let {fullName, password, userId, email, url, contactNumber, address, userType, gender} = req.body;
 
   let userData = {
       fullName,
@@ -51,7 +51,10 @@ router.post('/create', function(req, res) {
       userId,
       email,
       url,
-      contactNumber
+      address,
+      contactNumber,
+      userType,
+      gender
     };
 
   collection.create(userData, function (err, user) {
@@ -122,19 +125,19 @@ router.put('/update/:id', function(req, res) {
     return res.status(400).json(errors);
   }
 
-  let {fullName, email, url, contactNumber} = req.body;
+  let {fullName, email, url, contactNumber, address} = req.body;
 
   let updateData = {
     $set: {
       fullName,
       email,
-      url: url,
+      url,
       contactNumber,
-      userTpe,
-      updatedAt: Date.now()
+      updatedAt: Date.now(),
+      address
     }
   }
-
+  console.log(updateData)
   functions.updateUser(req.params.id, updateData).then((user) => {
     return res.status(200).json({error: false, message: 'Updated successfully'})
   }, err => {

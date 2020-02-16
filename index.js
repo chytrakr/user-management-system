@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
-const session = require('express-session');
 
 //import router
 const router = require('./app/index.js');
@@ -24,22 +23,6 @@ app.use(function(req, res, next) {
     next();
   }
 });
-
-app.use(
-  session({
-    secret: "iy98hcbh489n38984y4h498", // don't put this into your code at production.  Try using saving it into environment variable or a config file.
-    resave: true,
-    saveUninitialized: false
-  })
-);
-
-// app.use((req, res, next) => {
-//   if (req.session.user) {
-//     next();
-//   } else {
-//     res.status(401).send('Authrization failed! Please login');
-//   }
-// });
 
 app.get('/', (req, res) => {
   res.send("incorrect route");

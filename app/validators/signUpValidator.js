@@ -11,25 +11,35 @@ module.exports = function signUpValidator(data) {
   data.email = !isEmpty(data.email) ? data.email : '';
   data.url = !isEmpty(data.url) ? data.url : '';
   data.contactNumber = !isEmpty(data.contactNumber) ? data.contactNumber : '';
+  data.address = !isEmpty(data.address) ? data.address : '';
+  data.gender = !isEmpty(data.gender) ? data.gender : '';
 
   if(Validator.isEmpty(data.fullName)) {
-    errors.fullName = "User full name is required";
+    errors.message = "User full name is required";
   }
 
   if(Validator.isEmpty(data.password)) {
-    errors.password = "Password is required";
+    errors.message = "Password is required";
   }
 
   if(Validator.isEmpty(data.userId)) {
-    errors.userId = "User ID is required";
+    errors.message = "User ID is required";
   }
 
   if(Validator.isEmpty(data.email)) {
-    errors.email = "Email ID is required";
+    errors.message = "Email ID is required";
   }
 
-  if(Validator.isEmpty(data.contactNumber)) {
-    errors.contactNumber = "Contact number is required"
+  if(typeof data.contactNumber !== 'number' && data.contactNumber.length !== 10) {
+    errors.message = "Invalid contact number"
+  }
+
+  if(Validator.isEmpty(data.address)) {
+    errors.message = "Address is required";
+  }
+
+  if(Validator.isEmpty(data.gender)) {
+    errors.message = "Address is required";
   }
 
   return {

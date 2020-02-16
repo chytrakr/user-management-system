@@ -11,15 +11,23 @@ module.exports = function userUpdateValidator(data) {
   data.contactNumber = !isEmpty(data.contactNumber) ? data.contactNumber : '';
 
   if(Validator.isEmpty(data.fullName)) {
-    errors.fullName = "User full name is required";
+    errors.message = "User full name is required";
   }
 
   if(Validator.isEmpty(data.email)) {
-    errors.email = "Email ID is required";
+    errors.message = "Email ID is required";
   }
 
-  if(Validator.isEmpty(data.contactNumber)) {
-    errors.contactNumber = "Contact number is required"
+  if(Validator.isEmpty(data.address)) {
+    errors.message = "Email ID is required";
+  }
+
+  if(!data.contactNumber) {
+    errors.message = "Contact number is required"
+  }
+
+  if(typeof data.contactNumber !== 'number' && data.contactNumber.length !== 10) {
+    errors.message = "Invalid contact number"
   }
 
   return {
